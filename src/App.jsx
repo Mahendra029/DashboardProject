@@ -5,14 +5,14 @@ function App() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/items')
+    fetch('http://localhost:8081/api/items')
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, []);
 
   const handleAdd = () => {
     if (inputValue.trim() !== '') {
-      fetch('http://localhost:8080/api/items', {
+      fetch('http://localhost:8081/api/items', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: inputValue })
